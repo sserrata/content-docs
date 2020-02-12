@@ -25,10 +25,8 @@ function matchingRouteExist(routes, pathname) {
 function useLocalStorage(key, initialValue) {
   const [storedValue, setStoredValue] = useState(() => {
     try {
-      if (typeof window !== "undefined") {
-        const item = window.localStorage.getItem(key);
-        return item ? JSON.parse(item) : initialValue;
-      }
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
     } catch (error) {
       console.log(error);
       return initialValue;
@@ -40,9 +38,7 @@ function useLocalStorage(key, initialValue) {
       const valueToStore =
         value instanceof Function ? value(storedValue) : value;
       setStoredValue(valueToStore);
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem(key, JSON.stringify(valueToStore));
-      }
+      window.localStorage.setItem(key, JSON.stringify(valueToStore));
     } catch (error) {
       console.log(error);
     }
@@ -60,16 +56,14 @@ const useResize = myRef => {
       setSidebarWidth(0);
     }
   };
-  if (typeof window !== "undefined") {
-    useEffect(() => {
-      handleResize();
-      window.addEventListener("resize", handleResize);
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }, [myRef.current]);
-  }
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [myRef.current]);
 
   return { sidebarWidth };
 };
