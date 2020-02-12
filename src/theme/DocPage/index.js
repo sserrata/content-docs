@@ -100,7 +100,13 @@ function DocPage(props) {
     <Layout version={version}>
       <div
         className="row row--no-gutters"
-        style={{ paddingLeft: sidebarWidth }}
+        style={{
+          paddingLeft: sidebarWidth,
+          position: "sticky",
+          top: "60px",
+          zIndex: 999,
+          backgroundColor: "var(--ifm-background-color)"
+        }}
       >
         {options.map((menuItem, i) => (
           <Link
