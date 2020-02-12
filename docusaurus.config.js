@@ -127,20 +127,20 @@ module.exports = {
     docbar: {
       options: [
         {
-          to: "/docs/getting-started-guide",
+          to: "getting-started-guide",
           label: "Concepts"
         },
         {
           label: "How-Tos",
-          to: "/docs/code-conventions"
+          to: "code-conventions"
         },
         {
           label: "Tutorials",
-          to: "/docs/tutorial-setup-dev"
+          to: "tutorial-setup-dev"
         },
         {
           label: "Reference",
-          to: "/docs/use-cases"
+          to: "use-cases"
         }
       ]
     }
