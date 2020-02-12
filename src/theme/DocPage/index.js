@@ -121,7 +121,7 @@ function DocPage(props) {
               borderStyle: "solid",
               borderBottom: "none",
               padding:
-                "calc( var(--ifm-button-padding-vertical) * .70 ) calc( var(--ifm-button-padding-horizontal) * .70 )"
+                "calc( var(--ifm-button-padding-vertical) * .65 ) calc( var(--ifm-button-padding-horizontal) * .65 )"
             }}
             onClick={() => setActiveTabIndex(i)}
             key={i}
