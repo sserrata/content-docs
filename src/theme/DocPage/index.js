@@ -22,14 +22,14 @@ function matchingRouteExist(routes, pathname) {
 
 function useLocalStorage(key, initialValue) {
   const [storedValue, setStoredValue] = useState(() => {
-    if (typeof window !== "undefined") {
-      try {
+    try {
+      if (typeof window !== "undefined") {
         const item = window.localStorage.getItem(key);
         return item ? JSON.parse(item) : initialValue;
-      } catch (error) {
-        console.log(error);
-        return initialValue;
       }
+    } catch (error) {
+      console.log(error);
+      return initialValue;
     }
   });
 
@@ -50,7 +50,7 @@ function useLocalStorage(key, initialValue) {
 }
 
 const useResize = myRef => {
-  const [sidebarWidth, setSidebarWidth] = useState(0);
+  const [sidebarWidth, setSidebarWidth] = useState();
   const handleResize = () => {
     if (myRef.current.getBoundingClientRect().height > 0) {
       setSidebarWidth(myRef.current.offsetWidth - 1);
