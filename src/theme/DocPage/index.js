@@ -22,7 +22,7 @@ function matchingRouteExist(routes, pathname) {
 
 function useLocalStorage(key, initialValue) {
   const [storedValue, setStoredValue] = useState(() => {
-    if (typeof document !== "undefined") {
+    if (typeof window !== "undefined") {
       try {
         const item = window.localStorage.getItem(key);
         return item ? JSON.parse(item) : initialValue;
@@ -38,7 +38,7 @@ function useLocalStorage(key, initialValue) {
       const valueToStore =
         value instanceof Function ? value(storedValue) : value;
       setStoredValue(valueToStore);
-      if (typeof document !== "undefined") {
+      if (typeof window !== "undefined") {
         window.localStorage.setItem(key, JSON.stringify(valueToStore));
       }
     } catch (error) {
@@ -58,7 +58,7 @@ const useResize = myRef => {
       setSidebarWidth(0);
     }
   };
-  if (typeof document !== "undefined") {
+  if (typeof window !== "undefined") {
     useEffect(() => {
       handleResize();
       window.addEventListener("resize", handleResize);
