@@ -104,7 +104,7 @@ function DocPage(props) {
           paddingLeft: sidebarWidth,
           position: "sticky",
           top: "60px",
-          zIndex: 999,
+          zIndex: 1,
           backgroundColor: "var(--ifm-background-color)"
         }}
       >
