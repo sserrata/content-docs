@@ -5,8 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import Link from "@docusaurus/Link";
 import renderRoutes from "@docusaurus/renderRoutes";
 import { matchPath } from "@docusaurus/router";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import { MDXProvider } from "@mdx-js/react";
 import DocSidebar from "@theme/DocSidebar";
@@ -98,7 +100,7 @@ function DocPage(props) {
         style={{ paddingLeft: sidebarWidth }}
       >
         {options.map((menuItem, i) => (
-          <a
+          <Link
             className={
               "button button--outline button--secondary button--md " +
               (activeTabIndex === i ? "button--active" : "")
@@ -112,12 +114,12 @@ function DocPage(props) {
               padding:
                 "calc( var(--ifm-button-padding-vertical) * .70 ) calc( var(--ifm-button-padding-horizontal) * .70 )"
             }}
-            href={menuItem.to}
             onClick={() => setActiveTabIndex(i)}
             key={i}
+            to={useBaseUrl(menuItem.to)}
           >
             {menuItem.label}
-          </a>
+          </Link>
         ))}
       </div>
 
