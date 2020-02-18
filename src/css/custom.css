@@ -80,6 +80,7 @@ blockquote {
   z-index: 1;
 }
 
+
 /* Dropdown menu overrides */
 .dropdown .dropdown__menu {
   min-width: 14rem !important;
@@ -129,6 +130,11 @@ blockquote {
   padding: 48px;
   /* margin: 0 auto -40px; */
   text-align: center;
+}
+
+.card {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .customer-inner {

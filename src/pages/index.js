@@ -159,7 +159,7 @@ function Home() {
                     "button button--outline button--secondary button--lg",
                     styles.indexCtasGetStartedButton
                   )}
-                  to="docs/why-demisto"
+                  to="docs/partners/why-demisto"
                 >
                   Why Demisto?
                 </Link>
