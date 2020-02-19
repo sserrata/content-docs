@@ -58,7 +58,7 @@ function Navbar() {
   const [sidebarShown, setSidebarShown] = useState(false);
   const [menuShown, setMenuShown] = useState({});
   const [isSearchBarExpanded, setIsSearchBarExpanded] = useState(false);
-  const [theme, setTheme] = useTheme();
+  const {isDarkTheme, setLightTheme, setDarkTheme} = useTheme();
   const { siteConfig = {} } = context;
   const { baseUrl, themeConfig = {} } = siteConfig;
   const { navbar = {}, disableDarkMode = false } = themeConfig;
@@ -78,8 +78,10 @@ function Navbar() {
   };
 
   const onToggleChange = useCallback(
-    e => setTheme(e.target.checked ? "dark" : ""),
-    [setTheme]
+    e => {
+      isDarkTheme ? setLightTheme() : setDarkTheme();
+    },
+    [isDarkTheme, setLightTheme, setDarkTheme]
   );
 
   const logoUrl = useBaseUrl(logo.src);
@@ -87,7 +89,7 @@ function Navbar() {
     <>
       <Head>
         {/* TODO: Do not assume that it is in english language */}
-        <html lang="en" data-theme={theme} />
+        <html lang="en" data-theme={isDarkTheme ? "dark" : "light"} />
       </Head>
       <nav
         className={classnames("navbar", "navbar--light", "navbar--fixed-top", {
@@ -160,7 +162,7 @@ function Navbar() {
               <Toggle
                 className={styles.displayOnlyInLargeViewport}
                 aria-label="Dark mode toggle"
-                checked={theme === "dark"}
+                checked={isDarkTheme}
                 onChange={onToggleChange}
               />
             )}
@@ -188,7 +190,7 @@ function Navbar() {
             {!disableDarkMode && sidebarShown && (
               <Toggle
                 aria-label="Dark mode toggle in sidebar"
-                checked={theme === "dark"}
+                checked={isDarkTheme}
                 onChange={onToggleChange}
               />
             )}
