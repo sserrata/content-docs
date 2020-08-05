@@ -12,6 +12,8 @@ jobs:
     steps:
       # Check out the current repository code
       - uses: actions/checkout@v1
+      # Install pipenv
+      - uses: dschep/install-pipenv-action@v1
       # 3. https://github.com/actions/setup-node#usage
       - uses: actions/setup-node@v1
         with:
