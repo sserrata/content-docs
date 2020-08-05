@@ -152,7 +152,7 @@ mv demistomock.py demisto.py
 if [ -z "${NETLIFY}" ]; then
     echo "Not running in netlify. Using pipenv"
     echo "Installing pipenv..."
-    pipenv install
+    pip install pipenv
     echo "Generating Demisto class docs..."
     pipenv run "${DEMISTO_CLASS_DOCS_CMD[@]}"
     mv demisto.py demistomock.py
