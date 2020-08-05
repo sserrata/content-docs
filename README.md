@@ -1,4 +1,4 @@
-![Content logo](demisto_content_logo.png) DEVELOPERS!
+![Content logo](demisto_content_logo.png) DEVELOPERS!!!!
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7f059c11-2192-4c11-8578-a15b32db377d/deploy-status)](https://app.netlify.com/sites/demisto-content-docs/deploys)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/demisto/content-docs.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/demisto/content-docs/context:javascript)
