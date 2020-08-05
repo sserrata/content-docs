@@ -12,6 +12,10 @@ jobs:
     steps:
       # Check out the current repository code
       - uses: actions/checkout@v1
+      # Setup python 3.7
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
       # Install pipenv
       - uses: dschep/install-pipenv-action@v1
       # 3. https://github.com/actions/setup-node#usage
