@@ -105,9 +105,7 @@ function Feature({ imageUrl, title, description, button }) {
   return (
     <div className={classnames("col col--4", styles.features)}>
       {imgUrl && (
-        <div className="text--center">
           <img className={styles.featureImage} src={imgUrl} alt={title} />
-        </div>
       )}
       <h3>{title}</h3>
       <p>{description}</p>
@@ -178,7 +176,7 @@ function Home() {
       <main>
         {features && features.length && (
           <section className={styles.features} ref={vertificalsRef}>
-            <div className="container">
+            <div className="container text--center margin-bottom--xl">
               <div className="row">
                 {features.map((props, idx) => (
                   <Feature key={idx} {...props} />
